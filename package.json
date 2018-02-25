@@ -22,7 +22,7 @@
     "precommit": "lint-staged"
   },
   "lint-staged": {
-    "*.js": ["lint:fix", "git add"]
+    "*.js": ["npm run lint:js -- --fix", "git add"]
   },
   "devDependencies": {
     "eslint": "4.18.1",
