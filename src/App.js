@@ -3,6 +3,10 @@ import {
   Helmet
 } from 'react-helmet';
 import styled from 'styled-components';
+import {
+  Switch,
+  Route
+} from 'react-router-dom';
 
 import logo from './logo.svg';
 import './App.css';
@@ -15,6 +19,13 @@ const AppWrapper = styled.div `
   flex-direction: column;
 `;
 
+const Main = () => 
+  <p className = "App-intro" >
+    To get started, edit <code > src / App.js </code> and save to reload. 
+  </p>
+
+const Feature = () => <div>Feature</div>
+  
 class App extends Component {
   render() {
     return (
@@ -29,9 +40,18 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+              <Switch>
+                <Route exact path = "/"
+              component = {
+                Main
+              }/> 
+              <Route path = "/feature"
+              component = {
+                Feature
+              }
+              /> 
+            </Switch>
+
       </AppWrapper>
     );
   }
