@@ -19,7 +19,7 @@ const Main = () => (
   </p>
 );
 
-const Feature = () => <div>Feature</div>;
+const Feature = () => <div> Feature</div>;
 
 const App = () => (
   <AppWrapper className="App">
