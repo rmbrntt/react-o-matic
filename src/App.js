@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import {
+  Helmet
+} from 'react-helmet';
+
 import logo from './logo.svg';
 import './App.css';
 
@@ -6,6 +10,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+            <Helmet
+        titleTemplate="%s - React-O-Matic"
+        defaultTitle="React-O-Matic"
+      >
+        <meta name="description" content="Sensible extensions to create-react-app" />
+      </Helmet>
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
