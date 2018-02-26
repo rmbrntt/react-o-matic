@@ -2,10 +2,10 @@ import React from 'react';
 import {Helmet} from 'react-helmet';
 import styled from 'styled-components';
 import {Switch, Route} from 'react-router-dom';
+import RepoView from 'containers/RepoView';
 
 import logo from './logo.svg';
-import './App.css';
-
+import './index.css';
 const AppWrapper = styled.div`
   margin: 0 auto;
   display: flex;
@@ -14,12 +14,15 @@ const AppWrapper = styled.div`
 `;
 
 const Main = () => (
-  <p className="App-intro">
-    To get started, edit <code> src / App.js </code> and save to reload.
-  </p>
+  <div className="App-intro">
+    <p>
+      To get started, edit <code> src / App.js </code> and save to reload.
+    </p>
+    <RepoView />
+  </div>
 );
 
-const Feature = () => <div> Feature</div>;
+const Feature = () => <div>Feature</div>;
 
 const App = () => (
   <AppWrapper className="App">
