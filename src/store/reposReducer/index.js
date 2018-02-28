@@ -59,6 +59,6 @@ function reposReducer(state = initialState, action) {
   }
 }
 
-export const reducerName = 'repos';
+export const reducerKey = 'repos';
 
 export default reposReducer;

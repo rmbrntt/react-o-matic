@@ -30,6 +30,6 @@ const globalReducer = (state = initialState, action) => {
   }
 };
 
-export const reducerName = 'global';
+export const reducerKey = 'global';
 
 export default globalReducer;

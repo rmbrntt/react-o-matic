@@ -8,7 +8,8 @@
  *   export const ACTION_CONSTANT = 'appName/reducerName/ACTION_NAME';
  */
 import {createActionName} from '../reducerUtils';
-import {reducerName} from './';
+
+const reducerName = 'global';
 
 export const LOAD_APP = createActionName(reducerName, 'LOAD_APP');
 export const LOAD_APP_SUCCESS = createActionName(

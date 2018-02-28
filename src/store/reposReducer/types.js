@@ -8,7 +8,8 @@
  * export const ACTION_CONSTANT = 'appName/reducerName/ACTION_NAME';
  */
 import {createActionName} from '../reducerUtils';
-import {reducerName} from './index';
+
+const reducerName = 'repos';
 
 export const CHANGE_USERNAME = createActionName(reducerName, 'CHANGE_USERNAME');
 export const LOAD_REPOS = createActionName(reducerName, 'LOAD_REPOS');

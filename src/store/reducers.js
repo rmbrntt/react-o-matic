@@ -4,7 +4,7 @@
 
 import {combineReducers} from 'redux';
 
-import globalReducer, {reducerName as globalReducerKey} from './globalReducer';
+import globalReducer, {reducerKey as globalKey} from './globalReducer';
 
 /*
  * routeReducer
@@ -40,7 +40,7 @@ function routeReducer(state = routeInitialState, action) {
 export default function createReducer(injectedReducers) {
   return combineReducers({
     route: routeReducer,
-    [globalReducerKey]: globalReducer,
+    [globalKey]: globalReducer,
     ...injectedReducers,
   });
 }

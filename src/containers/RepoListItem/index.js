@@ -21,7 +21,6 @@ export class RepoListItem extends React.PureComponent {
   render() {
     const {item} = this.props;
     let nameprefix = '';
-    console.log(item)
     // If the repository is owned by a different person than we got the data for
     // it's a fork and we should show the name of the owner
     if (item.owner.login !== this.props.currentUser) {
