@@ -15,7 +15,7 @@ import saga from 'store/reposReducer/saga';
 import injectReducer from 'store/injectReducer';
 import injectSaga from 'store/injectSaga';
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   onChangeUsername: evt => dispatch(changeUsername(evt.target.value)),
   onSubmitForm: evt => {
     if (evt !== undefined && evt.preventDefault) evt.preventDefault();
@@ -23,14 +23,13 @@ const mapDispatchToProps = dispatch => ({
   },
 });
 
-const mapStateToProps = createStructuredSelector({
+export const mapStateToProps = createStructuredSelector({
   repos: makeSelectRepos(),
   username: makeSelectUsername(),
   loading: makeSelectLoading(),
   error: makeSelectError(),
 });
 
-// export default connect(mapStateToProps, mapDispatchToProps);
 const withConnect = connect(mapStateToProps, mapDispatchToProps);
 
 const withReducer = injectReducer({key, reducer});

@@ -1,11 +1,11 @@
-import {CHANGE_USERNAME} from '../constants';
+import {CHANGE_USERNAME} from '../types';
 
 import {changeUsername} from '../actions';
 
-describe('Home Actions', () => {
+describe('Repo Actions', () => {
   describe('changeUsername', () => {
     it('should return the correct type and the passed name', () => {
-      const fixture = 'Max';
+      const fixture = 'Ryan';
       const expectedResult = {
         type: CHANGE_USERNAME,
         name: fixture,

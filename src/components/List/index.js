@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Ul from './Ul';
 import Wrapper from './Wrapper';
 
-const List = (props) => {
+const List = props => {
   const ComponentToRender = props.component;
   let content = <div />;
 
@@ -23,7 +23,7 @@ const List = (props) => {
       <Ul>{content}</Ul>
     </Wrapper>
   );
-}
+};
 
 List.propTypes = {
   component: PropTypes.func.isRequired,

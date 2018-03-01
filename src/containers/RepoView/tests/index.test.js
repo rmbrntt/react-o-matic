@@ -1,20 +1,18 @@
 /**
- * Test the HomePage
+ * Test the RepoView
  */
 
 import React from 'react';
 import {shallow, mount} from 'enzyme';
-import {IntlProvider} from 'react-intl';
-
 import ReposList from 'components/ReposList';
-import {HomePage, mapDispatchToProps} from '../index';
-import {changeUsername} from '../actions';
-import {loadRepos} from '../../App/actions';
+import {loadRepos, changeUsername} from 'store/reposReducer/actions';
+import {RepoView} from '../index';
+import {mapDispatchToProps} from '../connect';
 
-describe('<HomePage />', () => {
+describe('<RepoView />', () => {
   it('should render the repos list', () => {
     const renderedComponent = shallow(
-      <HomePage loading error={false} repos={[]} />,
+      <RepoView loading error={false} repos={[]} />,
     );
     expect(
       renderedComponent.contains(
@@ -26,37 +24,29 @@ describe('<HomePage />', () => {
   it('should render fetch the repos on mount if a username exists', () => {
     const submitSpy = jest.fn();
     mount(
-      <IntlProvider locale="en">
-        <HomePage
-          username="Not Empty"
-          onChangeUsername={() => {}}
-          onSubmitForm={submitSpy}
-        />
-      </IntlProvider>,
+      <RepoView
+        username="Not Empty"
+        onChangeUsername={() => {}}
+        onSubmitForm={submitSpy}
+      />,
     );
     expect(submitSpy).toHaveBeenCalled();
   });
 
   it('should not call onSubmitForm if username is an empty string', () => {
     const submitSpy = jest.fn();
-    mount(
-      <IntlProvider locale="en">
-        <HomePage onChangeUsername={() => {}} onSubmitForm={submitSpy} />
-      </IntlProvider>,
-    );
+    mount(<RepoView onChangeUsername={() => {}} onSubmitForm={submitSpy} />);
     expect(submitSpy).not.toHaveBeenCalled();
   });
 
   it('should not call onSubmitForm if username is null', () => {
     const submitSpy = jest.fn();
     mount(
-      <IntlProvider locale="en">
-        <HomePage
-          username=""
-          onChangeUsername={() => {}}
-          onSubmitForm={submitSpy}
-        />
-      </IntlProvider>,
+      <RepoView
+        username=""
+        onChangeUsername={() => {}}
+        onSubmitForm={submitSpy}
+      />,
     );
     expect(submitSpy).not.toHaveBeenCalled();
   });

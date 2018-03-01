@@ -5,6 +5,7 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import H2 from 'components/H2';
 import ReposList from 'components/ReposList';
 import AtPrefix from './AtPrefix';
@@ -14,11 +15,15 @@ import Input from './Input';
 import Section from './Section';
 import connect from './connect';
 
+const RepoViewWrapper = styled.div`
+  max-width: calc(768 * 2);
+  margin: 0 auto;
+  min-height: 100%;
+  padding: 16px 0 0 0;
+  flex-direction: column;
+`;
+
 export class RepoView extends React.PureComponent {
-  // eslint-disable-line react/prefer-stateless-function
-  /**
-   * when initial state username is not null, submit the form to load repos
-   */
   componentDidMount() {
     if (this.props.username && this.props.username.trim().length > 0) {
       this.props.onSubmitForm();
@@ -34,13 +39,11 @@ export class RepoView extends React.PureComponent {
     };
 
     return (
-      <div>
+      <RepoViewWrapper>
         <CenteredSection>
-          <H2>create-react-app with batteries included</H2>
-          <p>Add some sugar to your CRA experience</p>
+          <H2>Async Saga Demo</H2>
         </CenteredSection>
         <Section>
-          <H2>Try me!</H2>
           <Form onSubmit={this.props.onSubmitForm}>
             <label htmlFor="username">
               Show Github repositories by
@@ -56,7 +59,7 @@ export class RepoView extends React.PureComponent {
           </Form>
           <ReposList {...reposListProps} />
         </Section>
-      </div>
+      </RepoViewWrapper>
     );
   }
 }
