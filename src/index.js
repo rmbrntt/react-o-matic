@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter as Router} from 'react-router-dom';
 import {Provider} from 'react-redux';
-import App from 'containers/App';
 import configureStore from 'store/configureStore';
-import './index.css';
+import App from './App';
+import './global-styles';
 import registerServiceWorker from './registerServiceWorker';
 
 const initialState = {};
@@ -26,11 +26,11 @@ const render = () => {
 render();
 
 if (module.hot) {
-  // Hot reloadable React components and translation json files
+  // Hot reloadable React components
   // modules.hot.accept does not accept dynamic dependencies,
   // have to be constants at compile-time
   // https://github.com/facebook/create-react-app/issues/2317
-  module.hot.accept('containers/App', () => {
+  module.hot.accept('./App', () => {
     ReactDOM.unmountComponentAtNode(MOUNT_NODE);
     render();
   });
