@@ -1,9 +1,18 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './';
+import {shallow} from 'enzyme';
+import {Route} from 'react-router-dom';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
+import Header from 'components/Header';
+import App from './App';
+
+describe('<App />', () => {
+  it('should render the header', () => {
+    const renderedComponent = shallow(<App />);
+    expect(renderedComponent.find(Header).length).toBe(1);
+  });
+
+  it('should render some routes', () => {
+    const renderedComponent = shallow(<App />);
+    expect(renderedComponent.find(Route).length).not.toBe(0);
+  });
 });

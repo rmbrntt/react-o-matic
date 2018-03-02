@@ -4,17 +4,11 @@
 
 import React from 'react';
 import {shallow, render} from 'enzyme';
-import {IntlProvider} from 'react-intl';
 
 import ListItem from 'components/ListItem';
 import {RepoListItem} from '../index';
 
-const renderComponent = (props = {}) =>
-  render(
-    <IntlProvider locale="en">
-      <RepoListItem {...props} />
-    </IntlProvider>,
-  );
+const renderComponent = (props = {}) => render(<RepoListItem {...props} />);
 
 describe('<RepoListItem />', () => {
   let item;
@@ -23,12 +17,12 @@ describe('<RepoListItem />', () => {
   beforeEach(() => {
     item = {
       owner: {
-        login: 'mxstbr',
+        login: 'rmbrntt',
       },
-      html_url: 'https://github.com/react-o-matic/react-o-matic',
+      html_url: 'https://github.com/rmbrntt/react-o-matic',
       name: 'react-o-matic',
       open_issues_count: 20,
-      full_name: 'react-o-matic/react-o-matic',
+      full_name: 'rmbrntt/react-o-matic',
     };
   });
 
@@ -48,7 +42,7 @@ describe('<RepoListItem />', () => {
   it('should render usernames that are not the current one', () => {
     const renderedComponent = renderComponent({
       item,
-      currentUser: 'nikgraf',
+      currentUser: 'useffc',
     });
     expect(renderedComponent.text()).toContain(item.owner.login);
   });

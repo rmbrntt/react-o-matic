@@ -4,12 +4,11 @@
 
 import {put, takeLatest} from 'redux-saga/effects';
 
-import {LOAD_REPOS} from 'containers/App/constants';
-import {reposLoaded, repoLoadingError} from 'containers/App/actions';
-
+import {LOAD_REPOS} from '../types';
+import {reposLoaded, repoLoadingError} from '../actions';
 import githubData, {getRepos} from '../saga';
 
-const username = 'mxstbr';
+const username = 'rmbrntt';
 
 /* eslint-disable redux-saga/yield-effects */
 describe('getRepos Saga', () => {
