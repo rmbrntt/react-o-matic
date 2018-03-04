@@ -58,7 +58,7 @@ describe('<RepoView />', () => {
       it('should dispatch changeUsername when called', () => {
         const dispatch = jest.fn();
         const result = mapDispatchToProps(dispatch);
-        const username = 'mxstbr';
+        const username = 'rmbrntt';
         result.onChangeUsername({target: {value: username}});
         expect(dispatch).toHaveBeenCalledWith(changeUsername(username));
       });

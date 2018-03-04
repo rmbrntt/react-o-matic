@@ -24,9 +24,9 @@ describe('<ReposList />', () => {
     const repos = [
       {
         owner: {
-          login: 'mxstbr',
+          login: 'rmbrntt',
         },
-        html_url: 'https://github.com/react-o-matic/react-o-matic',
+        html_url: 'https://github.com/rmbrntt/react-o-matic',
         name: 'react-o-matic',
         open_issues_count: 20,
         full_name: 'react-o-matic/react-o-matic',
