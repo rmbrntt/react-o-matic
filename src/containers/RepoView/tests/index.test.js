@@ -3,7 +3,7 @@
  */
 
 import React from 'react';
-import {shallow, mount} from 'enzyme';
+
 import ReposList from 'components/ReposList';
 import {loadRepos, changeUsername} from 'store/reposReducer/actions';
 import {RepoView} from '../index';

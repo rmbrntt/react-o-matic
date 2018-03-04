@@ -3,7 +3,6 @@
  */
 
 import React from 'react';
-import {shallow, render} from 'enzyme';
 
 import ListItem from 'components/ListItem';
 import {RepoListItem} from '../index';

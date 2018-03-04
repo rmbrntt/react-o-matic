@@ -80,5 +80,15 @@
         "paths": ["src/"]
       }
     }
-  }
+  },
+  "overrides": [
+    {
+      "files": [ "*.test.js" ],
+      "globals": {
+        "shallow": false,
+        "mount": false,
+        "render": false
+      }
+    }
+  ]
 }

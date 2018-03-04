@@ -1,3 +1,4 @@
+/* global mount, shallow */
 import React from 'react';
 
 import IssueIcon from '../IssueIcon';

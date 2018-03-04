@@ -3,12 +3,11 @@
  */
 
 import React from 'react';
-import {mount} from 'enzyme';
 
 import Button from '../index';
 
 const handleRoute = () => {};
-const href = 'http://mxstbr.com';
+const href = 'http://barnett.io';
 const children = <h1>Test</h1>;
 const renderComponent = (props = {}) =>
   mount(
