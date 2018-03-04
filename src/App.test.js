@@ -1,5 +1,5 @@
 import React from 'react';
-import {shallow} from 'enzyme';
+
 import {Route} from 'react-router-dom';
 
 import Header from 'components/Header';
@@ -7,12 +7,12 @@ import App from './App';
 
 describe('<App />', () => {
   it('should render the header', () => {
-    const renderedComponent = shallow(<App />);
-    expect(renderedComponent.find(Header).length).toBe(1);
+    const wrapper = shallow(<App />);
+    expect(wrapper.find(Header).length).toBe(1);
   });
 
   it('should render some routes', () => {
-    const renderedComponent = shallow(<App />);
-    expect(renderedComponent.find(Route).length).not.toBe(0);
+    const wrapper = shallow(<App />);
+    expect(wrapper.find(Route).length).not.toBe(0);
   });
 });

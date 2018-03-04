@@ -1,4 +1,3 @@
-import {shallow, mount} from 'enzyme';
 import React from 'react';
 
 import RepoListItem from 'containers/RepoListItem';
@@ -8,17 +7,17 @@ import ReposList from '../index';
 
 describe('<ReposList />', () => {
   it('should render the loading indicator when its loading', () => {
-    const renderedComponent = shallow(<ReposList loading />);
-    expect(
-      renderedComponent.contains(<List component={LoadingIndicator} />),
-    ).toEqual(true);
+    const wrapper = shallow(<ReposList loading />);
+    expect(wrapper.contains(<List component={LoadingIndicator} />)).toEqual(
+      true,
+    );
   });
 
   it('should render an error if loading failed', () => {
-    const renderedComponent = mount(
+    const wrapper = mount(
       <ReposList loading={false} error={{message: 'Loading failed!'}} />,
     );
-    expect(renderedComponent.text()).toMatch(/Something went wrong/);
+    expect(wrapper.text()).toMatch(/Something went wrong/);
   });
 
   it('should render the repositories if loading was successful', () => {
@@ -33,22 +32,18 @@ describe('<ReposList />', () => {
         full_name: 'react-o-matic/react-o-matic',
       },
     ];
-    const renderedComponent = shallow(
-      <ReposList repos={repos} error={false} />,
-    );
+    const wrapper = shallow(<ReposList repos={repos} error={false} />);
 
     expect(
-      renderedComponent.contains(
-        <List items={repos} component={RepoListItem} />,
-      ),
+      wrapper.contains(<List items={repos} component={RepoListItem} />),
     ).toEqual(true);
   });
 
   it('should not render anything if nothing interesting is provided', () => {
-    const renderedComponent = shallow(
+    const wrapper = shallow(
       <ReposList repos={false} error={false} loading={false} />,
     );
 
-    expect(renderedComponent.html()).toEqual(null);
+    expect(wrapper.html()).toEqual(null);
   });
 });

@@ -11,4 +11,6 @@ IssueIcon.propTypes = {
   className: PropTypes.string,
 };
 
+IssueIcon.displayName = 'IssueIcon';
+
 export default IssueIcon;
