@@ -55,10 +55,10 @@ describe('injectSaga decorator', () => {
 
   it('should eject on unmount with a correct saga key', () => {
     const props = {test: 'test'};
-    const renderedComponent = shallow(<ComponentWithSaga {...props} />, {
+    const wrapper = shallow(<ComponentWithSaga {...props} />, {
       context: {store},
     });
-    renderedComponent.unmount();
+    wrapper.unmount();
 
     expect(injectors.ejectSaga).toHaveBeenCalledTimes(1);
     expect(injectors.ejectSaga).toHaveBeenCalledWith('test');
@@ -73,10 +73,10 @@ describe('injectSaga decorator', () => {
 
   it('should propagate props', () => {
     const props = {testProp: 'test'};
-    const renderedComponent = shallow(<ComponentWithSaga {...props} />, {
+    const wrapper = shallow(<ComponentWithSaga {...props} />, {
       context: {store},
     });
 
-    expect(renderedComponent.prop('testProp')).toBe('test');
+    expect(wrapper.prop('testProp')).toBe('test');
   });
 });

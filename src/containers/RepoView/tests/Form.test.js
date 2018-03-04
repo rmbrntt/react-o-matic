@@ -5,23 +5,23 @@ import Form from '../Form';
 
 describe('<Form />', () => {
   it('should render an <form> tag', () => {
-    const renderedComponent = shallow(<Form />);
-    expect(renderedComponent.type()).toEqual('form');
+    const wrapper = shallow(<Form />);
+    expect(wrapper.type()).toEqual('form');
   });
 
   it('should have a className attribute', () => {
-    const renderedComponent = shallow(<Form />);
-    expect(renderedComponent.prop('className')).toBeDefined();
+    const wrapper = shallow(<Form />);
+    expect(wrapper.prop('className')).toBeDefined();
   });
 
   it('should adopt a valid attribute', () => {
     const id = 'test';
-    const renderedComponent = shallow(<Form id={id} />);
-    expect(renderedComponent.prop('id')).toEqual(id);
+    const wrapper = shallow(<Form id={id} />);
+    expect(wrapper.prop('id')).toEqual(id);
   });
 
   it('should not adopt an invalid attribute', () => {
-    const renderedComponent = shallow(<Form attribute="test" />);
-    expect(renderedComponent.prop('attribute')).toBeUndefined();
+    const wrapper = shallow(<Form attribute="test" />);
+    expect(wrapper.prop('attribute')).toBeUndefined();
   });
 });

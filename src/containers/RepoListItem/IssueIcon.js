@@ -7,4 +7,6 @@ const IssueIcon = styled(NormalIssueIcon)`
   margin-right: 0.25em;
 `;
 
+IssueIcon.displayName = 'IssueIcon';
+
 export default IssueIcon;

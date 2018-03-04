@@ -11,13 +11,9 @@ import {mapDispatchToProps} from '../connect';
 
 describe('<RepoView />', () => {
   it('should render the repos list', () => {
-    const renderedComponent = shallow(
-      <RepoView loading error={false} repos={[]} />,
-    );
+    const wrapper = shallow(<RepoView loading error={false} repos={[]} />);
     expect(
-      renderedComponent.contains(
-        <ReposList loading error={false} repos={[]} />,
-      ),
+      wrapper.contains(<ReposList loading error={false} repos={[]} />),
     ).toEqual(true);
   });
 

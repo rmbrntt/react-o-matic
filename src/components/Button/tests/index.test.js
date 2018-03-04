@@ -19,41 +19,41 @@ const renderComponent = (props = {}) =>
 
 describe('<Button />', () => {
   it('should render an <a> tag if no route is specified', () => {
-    const renderedComponent = renderComponent({href});
-    expect(renderedComponent.find('a').length).toEqual(1);
+    const wrapper = renderComponent({href});
+    expect(wrapper.find('a').length).toEqual(1);
   });
 
   it('should render a <button> tag to change route if the handleRoute prop is specified', () => {
-    const renderedComponent = renderComponent({handleRoute});
-    expect(renderedComponent.find('button').length).toEqual(1);
+    const wrapper = renderComponent({handleRoute});
+    expect(wrapper.find('button').length).toEqual(1);
   });
 
   it('should have children', () => {
-    const renderedComponent = renderComponent();
-    expect(renderedComponent.contains(children)).toEqual(true);
+    const wrapper = renderComponent();
+    expect(wrapper.contains(children)).toEqual(true);
   });
 
   it('should handle click events', () => {
     const onClickSpy = jest.fn();
-    const renderedComponent = renderComponent({onClick: onClickSpy});
-    renderedComponent.find('a').simulate('click');
+    const wrapper = renderComponent({onClick: onClickSpy});
+    wrapper.find('a').simulate('click');
     expect(onClickSpy).toHaveBeenCalled();
   });
 
   it('should have a className attribute', () => {
-    const renderedComponent = renderComponent();
-    expect(renderedComponent.find('a').prop('className')).toBeDefined();
+    const wrapper = renderComponent();
+    expect(wrapper.find('a').prop('className')).toBeDefined();
   });
 
   it('should not adopt a type attribute when rendering an <a> tag', () => {
     const type = 'text/html';
-    const renderedComponent = renderComponent({href, type});
-    expect(renderedComponent.find('a').prop('type')).toBeUndefined();
+    const wrapper = renderComponent({href, type});
+    expect(wrapper.find('a').prop('type')).toBeUndefined();
   });
 
   it('should not adopt a type attribute when rendering a button', () => {
     const type = 'submit';
-    const renderedComponent = renderComponent({handleRoute, type});
-    expect(renderedComponent.find('button').prop('type')).toBeUndefined();
+    const wrapper = renderComponent({handleRoute, type});
+    expect(wrapper.find('button').prop('type')).toBeUndefined();
   });
 });

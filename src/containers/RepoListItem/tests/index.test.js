@@ -27,38 +27,38 @@ describe('<RepoListItem />', () => {
   });
 
   it('should render a ListItem', () => {
-    const renderedComponent = shallow(<RepoListItem item={item} />);
-    expect(renderedComponent.find(ListItem).length).toBe(1);
+    const wrapper = shallow(<RepoListItem item={item} />);
+    expect(wrapper.find(ListItem).length).toBe(1);
   });
 
   it('should not render the current username', () => {
-    const renderedComponent = renderComponent({
+    const wrapper = renderComponent({
       item,
       currentUser: item.owner.login,
     });
-    expect(renderedComponent.text()).not.toContain(item.owner.login);
+    expect(wrapper.text()).not.toContain(item.owner.login);
   });
 
   it('should render usernames that are not the current one', () => {
-    const renderedComponent = renderComponent({
+    const wrapper = renderComponent({
       item,
       currentUser: 'useffc',
     });
-    expect(renderedComponent.text()).toContain(item.owner.login);
+    expect(wrapper.text()).toContain(item.owner.login);
   });
 
   it('should render the repo name', () => {
-    const renderedComponent = renderComponent({item});
-    expect(renderedComponent.text()).toContain(item.name);
+    const wrapper = renderComponent({item});
+    expect(wrapper.text()).toContain(item.name);
   });
 
   it('should render the issue count', () => {
-    const renderedComponent = renderComponent({item});
-    expect(renderedComponent.text()).toContain(item.open_issues_count);
+    const wrapper = renderComponent({item});
+    expect(wrapper.text()).toContain(item.open_issues_count);
   });
 
   it('should render the IssueIcon', () => {
-    const renderedComponent = renderComponent({item});
-    expect(renderedComponent.find('svg').length).toBe(1);
+    const wrapper = renderComponent({item});
+    expect(wrapper.find('svg').length).toBe(1);
   });
 });

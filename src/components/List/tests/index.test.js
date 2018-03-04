@@ -6,8 +6,8 @@ import List from '../index';
 
 describe('<List />', () => {
   it('should render the component if no items are passed', () => {
-    const renderedComponent = shallow(<List component={ListItem} />);
-    expect(renderedComponent.find(ListItem)).toBeDefined();
+    const wrapper = shallow(<List component={ListItem} />);
+    expect(wrapper.find(ListItem)).toBeDefined();
   });
 
   it('should pass all items props to rendered component', () => {
@@ -15,18 +15,16 @@ describe('<List />', () => {
 
     const component = ({item}) => <ListItem>{item.name}</ListItem>; // eslint-disable-line react/prop-types
 
-    const renderedComponent = shallow(
-      <List items={items} component={component} />,
-    );
-    expect(renderedComponent.find(component)).toHaveLength(2);
+    const wrapper = shallow(<List items={items} component={component} />);
+    expect(wrapper.find(component)).toHaveLength(2);
     expect(
-      renderedComponent
+      wrapper
         .find(component)
         .at(0)
         .prop('item'),
     ).toBe(items[0]);
     expect(
-      renderedComponent
+      wrapper
         .find(component)
         .at(1)
         .prop('item'),
