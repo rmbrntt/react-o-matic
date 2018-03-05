@@ -8,10 +8,8 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import H2 from 'components/H2';
 import ReposList from 'components/ReposList';
-import AtPrefix from './AtPrefix';
+import ReposForm from 'components/ReposForm';
 import CenteredSection from './CenteredSection';
-import Form from './Form';
-import Input from './Input';
 import Section from './Section';
 import connect from './connect';
 
@@ -44,19 +42,11 @@ export class RepoView extends React.PureComponent {
           <H2>Async Saga Demo</H2>
         </CenteredSection>
         <Section>
-          <Form onSubmit={this.props.onSubmitForm}>
-            <label htmlFor="username">
-              Show Github repositories by
-              <AtPrefix>@</AtPrefix>
-              <Input
-                id="username"
-                type="text"
-                placeholder="rmbrntt"
-                value={this.props.username}
-                onChange={this.props.onChangeUsername}
-              />
-            </label>
-          </Form>
+          <ReposForm
+            onSubmitForm={this.props.onSubmitForm}
+            username={this.props.username}
+            onChangeUsername={this.props.onChangeUsername}
+          />
           <ReposList {...reposListProps} />
         </Section>
       </RepoViewWrapper>
