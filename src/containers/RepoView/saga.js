@@ -4,7 +4,7 @@
 
 import {call, put, select, takeLatest} from 'redux-saga/effects';
 import request from 'utils/request';
-import ActionTypes from 'constants';
+import ActionTypes from './constants';
 import {reposLoaded, repoLoadingError} from './actions';
 import {makeSelectUsername} from './selectors';
 

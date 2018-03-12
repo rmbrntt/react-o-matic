@@ -10,7 +10,7 @@
  *   return state.set('yourStateVariable', true);
  */
 
-import ActionTypes from 'constants';
+import ActionTypes from './constants';
 
 // The initial state of the App
 const initialState = {

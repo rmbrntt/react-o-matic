@@ -1,7 +1,8 @@
+import {createActionPrefix} from 'store';
 import keyMirror from 'utils/keyMirror';
 
-const nameSpacePrefix = 'app/';
-const ActionTypes = keyMirror(
+const prefix = createActionPrefix('app');
+export const ActionTypes = keyMirror(
   {
     USER_LOGIN_REQUEST: undefined,
     USER_LOGIN_SUCCESS: undefined,
@@ -13,7 +14,7 @@ const ActionTypes = keyMirror(
     LOAD_APP_SUCCESS: undefined,
     LOAD_APP_ERROR: undefined,
   },
-  nameSpacePrefix,
+  prefix,
 );
 
 export default ActionTypes;

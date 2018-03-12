@@ -6,5 +6,5 @@ import user from './user';
  * rootSaga
  */
 export default function* root() {
-  yield all([fork(user)]);
+  yield all([fork(user)]); // TODO: this throws a console error
 }

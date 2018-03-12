@@ -6,7 +6,7 @@
 import {delay} from 'redux-saga';
 import {all, call, put, takeLatest} from 'redux-saga/effects';
 
-import ActionTypes from 'constants';
+import {ActionTypes} from 'constants';
 
 /**
  * Login
@@ -49,6 +49,7 @@ export function* logout() {
 /**
  * User Sagas
  */
+// TODO: getting uncaught at root at root  with these constants?
 export default function* root() {
   yield all([
     takeLatest(ActionTypes.USER_LOGIN_REQUEST, login),
