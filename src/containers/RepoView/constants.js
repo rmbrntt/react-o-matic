@@ -4,10 +4,10 @@
  * To avoid typos and unexpected event firing between the reducer and the actions,
  * types are declared by prefixing them with 'appName/reducerName'.
  *
- * Either use the createActionNameSpace utility or follow this format:
+ * Either use the createActionPrefix utility or follow this format:
  * export const ACTION_CONSTANT = 'appName/nameSpace/ACTION_NAME';
  */
-import {createActionPrefix} from 'store';
+import createActionPrefix from 'store/createActionPrefix';
 import keyMirror from 'utils/keyMirror';
 
 const prefix = createActionPrefix('repoView');

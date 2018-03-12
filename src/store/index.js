@@ -10,11 +10,6 @@ import rootSaga from 'sagas';
 
 const sagaMiddleware = createSagaMiddleware();
 
-export const createActionPrefix = (actionNameSpace, actionNamePrefix = '') =>
-  actionNameSpace
-    ? `app/${actionNameSpace}/${actionNamePrefix}`
-    : `app/${actionNamePrefix}`;
-
 export default function configureStore(initialState = {}) {
   const middlewares = [sagaMiddleware];
 
