@@ -1,11 +1,3 @@
-/**
- * Combine all reducers in this file and export the combined reducers.
- */
-
-import {combineReducers} from 'redux';
-
-import globalReducer, {reducerKey as globalKey} from './globalReducer';
-
 /*
  * routeReducer
  *
@@ -22,7 +14,7 @@ const routeInitialState = {
 /**
  * Merge route into the global application state
  */
-function routeReducer(state = routeInitialState, action) {
+function route(state = routeInitialState, action) {
   switch (action.type) {
     case LOCATION_CHANGE:
       return {
@@ -34,13 +26,4 @@ function routeReducer(state = routeInitialState, action) {
   }
 }
 
-/**
- * Creates the main reducer with the dynamically injected ones
- */
-export default function createReducer(injectedReducers) {
-  return combineReducers({
-    route: routeReducer,
-    [globalKey]: globalReducer,
-    ...injectedReducers,
-  });
-}
+export default route;

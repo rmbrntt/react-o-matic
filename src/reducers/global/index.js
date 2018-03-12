@@ -1,4 +1,4 @@
-import {LOAD_APP, LOAD_APP_SUCCESS, LOAD_APP_ERROR} from './types';
+import ActionTypes from 'constants';
 
 // The initial state of the App
 const initialState = {
@@ -6,20 +6,20 @@ const initialState = {
   error: false,
 };
 
-const globalReducer = (state = initialState, action) => {
+const global = (state = initialState, action) => {
   switch (action.type) {
-    case LOAD_APP:
+    case ActionTypes.LOAD_APP:
       return {
         ...state,
         loading: true,
         error: false,
       };
-    case LOAD_APP_SUCCESS:
+    case ActionTypes.LOAD_APP_SUCCESS:
       return {
         ...state,
         loading: false,
       };
-    case LOAD_APP_ERROR:
+    case ActionTypes.LOAD_APP_ERROR:
       return {
         ...state,
         error: action.error,
@@ -30,6 +30,4 @@ const globalReducer = (state = initialState, action) => {
   }
 };
 
-export const reducerKey = 'global';
-
-export default globalReducer;
+export default global;

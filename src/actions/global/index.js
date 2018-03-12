@@ -1,4 +1,8 @@
-import {LOAD_APP, LOAD_APP_SUCCESS, LOAD_APP_ERROR} from './types';
+import {
+  LOAD_APP,
+  LOAD_APP_SUCCESS,
+  LOAD_APP_ERROR,
+} from 'constants/ActionTypes';
 
 /**
  * Load the app, this action starts the request saga

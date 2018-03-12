@@ -4,7 +4,7 @@
 
 import {call, put, select, takeLatest} from 'redux-saga/effects';
 import request from 'utils/request';
-import {LOAD_REPOS} from './types';
+import ActionTypes from 'constants';
 import {reposLoaded, repoLoadingError} from './actions';
 import {makeSelectUsername} from './selectors';
 
@@ -33,5 +33,5 @@ export default function* repoData() {
   // By using `takeLatest` only the result of the latest API call is applied.
   // It returns task descriptor (just like fork) so we can continue execution
   // It will be cancelled automatically on component unmount
-  yield takeLatest(LOAD_REPOS, getRepos);
+  yield takeLatest(ActionTypes.LOAD_REPOS, getRepos);
 }

@@ -10,12 +10,7 @@
  *   return state.set('yourStateVariable', true);
  */
 
-import {
-  LOAD_REPOS_SUCCESS,
-  LOAD_REPOS,
-  LOAD_REPOS_ERROR,
-  CHANGE_USERNAME,
-} from './types';
+import ActionTypes from 'constants';
 
 // The initial state of the App
 const initialState = {
@@ -26,29 +21,29 @@ const initialState = {
   repositories: false,
 };
 
-function reposReducer(state = initialState, action) {
+const repos = (state = initialState, action) => {
   switch (action.type) {
-    case CHANGE_USERNAME:
+    case ActionTypes.CHANGE_USERNAME:
       // Delete prefixed '@' from the github username
       return {
         ...state,
         username: action.name.replace(/@/gi, ''),
       };
-    case LOAD_REPOS:
+    case ActionTypes.LOAD_REPOS:
       return {
         ...state,
         loading: true,
         error: false,
         repositories: false,
       };
-    case LOAD_REPOS_SUCCESS:
+    case ActionTypes.LOAD_REPOS_SUCCESS:
       return {
         ...state,
         loading: false,
         currentUser: action.username,
         repositories: action.repos,
       };
-    case LOAD_REPOS_ERROR:
+    case ActionTypes.LOAD_REPOS_ERROR:
       return {
         ...state,
         error: action.error,
@@ -57,8 +52,6 @@ function reposReducer(state = initialState, action) {
     default:
       return state;
   }
-}
+};
 
-export const reducerKey = 'repos';
-
-export default reposReducer;
+export default repos;

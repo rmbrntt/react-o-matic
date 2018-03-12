@@ -3,9 +3,8 @@
  */
 
 import {createSelector} from 'reselect';
-import {reducerKey} from './';
 
-const selectRepos = state => state[reducerKey];
+const selectRepos = state => state.repos;
 
 const makeSelectUsername = () =>
   createSelector(selectRepos, reposState => reposState.username);

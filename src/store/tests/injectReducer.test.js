@@ -7,7 +7,7 @@ import {memoryHistory} from 'react-router-dom';
 import React from 'react';
 import identity from 'lodash/identity';
 
-import configureStore from '../configureStore';
+import configureStore from 'store';
 import injectReducer from '../injectReducer';
 import * as reducerInjectors from '../reducerInjectors';
 

@@ -3,17 +3,17 @@
 import {connect} from 'react-redux';
 import {compose} from 'redux';
 import {createStructuredSelector} from 'reselect';
+import injectReducer from 'store/injectReducer';
+import injectSaga from 'store/injectSaga';
 import {
   makeSelectUsername,
   makeSelectRepos,
   makeSelectLoading,
   makeSelectError,
-} from 'store/reposReducer/selectors';
-import {changeUsername, loadRepos} from 'store/reposReducer/actions';
-import reducer, {reducerKey as key} from 'store/reposReducer';
-import saga from 'store/reposReducer/saga';
-import injectReducer from 'store/injectReducer';
-import injectSaga from 'store/injectSaga';
+} from './selectors';
+import {changeUsername, loadRepos} from './actions';
+import reducer from './reducer';
+import saga from './saga';
 
 export const mapDispatchToProps = dispatch => ({
   onChangeUsername: evt => dispatch(changeUsername(evt.target.value)),
@@ -32,7 +32,7 @@ export const mapStateToProps = createStructuredSelector({
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps);
 
-const withReducer = injectReducer({key, reducer});
-const withSaga = injectSaga({key, saga});
+const withReducer = injectReducer({key: 'repos', reducer});
+const withSaga = injectSaga({key: 'repos', saga});
 
 export default compose(withReducer, withSaga, withConnect);

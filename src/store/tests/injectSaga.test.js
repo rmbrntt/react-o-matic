@@ -7,7 +7,7 @@ import {put} from 'redux-saga/effects';
 
 import React from 'react';
 
-import configureStore from '../configureStore';
+import configureStore from 'store';
 import injectSaga from '../injectSaga';
 import * as sagaInjectors from '../sagaInjectors';
 

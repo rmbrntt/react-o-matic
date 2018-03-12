@@ -3,9 +3,8 @@
  */
 
 import {createSelector} from 'reselect';
-import {reducerKey} from './';
 
-const selectGlobal = state => state[reducerKey];
+const selectGlobal = state => state.global;
 
 const makeSelectLoading = () =>
   createSelector(selectGlobal, globalState => globalState.loading);
