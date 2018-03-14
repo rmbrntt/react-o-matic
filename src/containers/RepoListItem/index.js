@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {createStructuredSelector} from 'reselect';
 
-import {makeSelectCurrentUser} from 'store/reposReducer/selectors';
+import {makeSelectCurrentUser} from 'containers/RepoView/selectors';
 import ListItem from 'components/ListItem';
 import IssueIcon from './IssueIcon';
 import IssueLink from './IssueLink';

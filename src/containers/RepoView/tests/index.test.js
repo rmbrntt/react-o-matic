@@ -5,7 +5,7 @@
 import React from 'react';
 
 import ReposList from 'components/ReposList';
-import {loadRepos, changeUsername} from 'store/reposReducer/actions';
+import {loadRepos, changeUsername} from '../actions';
 import {RepoView} from '../index';
 import {mapDispatchToProps} from '../connect';
 

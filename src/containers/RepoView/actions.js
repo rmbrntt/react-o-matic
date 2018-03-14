@@ -15,12 +15,7 @@
  *    }
  */
 
-import {
-  CHANGE_USERNAME,
-  LOAD_REPOS,
-  LOAD_REPOS_SUCCESS,
-  LOAD_REPOS_ERROR,
-} from './types';
+import ActionTypes from './constants';
 
 /**
  * Changes the input field of the form
@@ -31,7 +26,7 @@ import {
  */
 export function changeUsername(name) {
   return {
-    type: CHANGE_USERNAME,
+    type: ActionTypes.CHANGE_USERNAME,
     name,
   };
 }
@@ -43,7 +38,7 @@ export function changeUsername(name) {
  */
 export function loadRepos() {
   return {
-    type: LOAD_REPOS,
+    type: ActionTypes.LOAD_REPOS,
   };
 }
 
@@ -57,7 +52,7 @@ export function loadRepos() {
  */
 export function reposLoaded(repos, username) {
   return {
-    type: LOAD_REPOS_SUCCESS,
+    type: ActionTypes.LOAD_REPOS_SUCCESS,
     repos,
     username,
   };
@@ -72,7 +67,7 @@ export function reposLoaded(repos, username) {
  */
 export function repoLoadingError(error) {
   return {
-    type: LOAD_REPOS_ERROR,
+    type: ActionTypes.LOAD_REPOS_ERROR,
     error,
   };
 }

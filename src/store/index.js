@@ -4,12 +4,21 @@
 
 import {createStore, applyMiddleware, compose} from 'redux';
 import createSagaMiddleware from 'redux-saga';
-import createReducer from './reducers';
+
+import rootReducer from 'reducers';
+import rootSaga from 'sagas';
 
 const sagaMiddleware = createSagaMiddleware();
 
 export default function configureStore(initialState = {}) {
   const middlewares = [sagaMiddleware];
+
+  if (process.env.NODE_ENV !== 'production') {
+    /* eslint-disable global-require */
+    const {createLogger} = require('redux-logger');
+
+    middlewares.push(createLogger({collapsed: true}));
+  }
 
   const enhancers = [applyMiddleware(...middlewares)];
 
@@ -27,10 +36,12 @@ export default function configureStore(initialState = {}) {
   /* eslint-enable */
 
   const store = createStore(
-    createReducer(),
+    rootReducer(),
     initialState,
     composeEnhancers(...enhancers),
   );
+
+  sagaMiddleware.run(rootSaga);
 
   // Extensions
   store.runSaga = sagaMiddleware.run;
@@ -41,8 +52,8 @@ export default function configureStore(initialState = {}) {
   // https://stackoverflow.com/questions/34243684/make-redux-reducers-and-other-non-components-hot-loadable
   // https://github.com/facebook/create-react-app/issues/2317
   if (module.hot) {
-    module.hot.accept('./reducers', () => {
-      store.replaceReducer(createReducer(store.injectedReducers));
+    module.hot.accept('../reducers', () => {
+      store.replaceReducer(rootReducer(store.injectedReducers));
     });
   }
 

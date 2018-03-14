@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter as Router} from 'react-router-dom';
 import {Provider} from 'react-redux';
-import configureStore from 'store/configureStore';
+import configureStore from 'store';
 import App from './App';
-import './global-styles';
-import registerServiceWorker from './registerServiceWorker';
+import './styles/global-styles';
+import registerServiceWorker from './utils/registerServiceWorker';
 
 const initialState = {};
 const store = configureStore(initialState);
