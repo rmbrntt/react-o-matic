@@ -32,7 +32,9 @@ const keyMirror = (obj, prefix = '') => {
   }
   /* eslint-disable no-restricted-syntax */
   for (key in obj) {
-    if (obj.hasOwnProperty(key)) { // eslint-disable-line 
+    /* eslint-disable */
+    if (obj.hasOwnProperty(key)) {
+      /* eslint-enable */
       ret[key] = prefix + key;
     }
   }
