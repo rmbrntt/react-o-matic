@@ -6,7 +6,7 @@ const initialState = {
   error: false,
 };
 
-const global = (state = initialState, action) => {
+const ui = (state = initialState, action) => {
   switch (action.type) {
     case ActionTypes.LOAD_APP:
       return {
@@ -30,4 +30,4 @@ const global = (state = initialState, action) => {
   }
 };
 
-export default global;
+export default ui;

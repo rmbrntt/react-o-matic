@@ -4,7 +4,7 @@
 
 import {combineReducers} from 'redux';
 
-import global from './global';
+import ui from './ui';
 import user from './user';
 import route from './route';
 
@@ -14,7 +14,7 @@ import route from './route';
 export default function rootReducer(injectedReducers) {
   return combineReducers({
     route,
-    global,
+    ui,
     user,
     ...injectedReducers,
   });
