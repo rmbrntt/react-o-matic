@@ -27,6 +27,18 @@ export default ({key, reducer}) => WrappedComponent => {
       injectReducer(key, reducer);
     }
 
+    // componentWillUnmount() {
+    //   /**
+    //    * https://stackoverflow.com/a/33044701 - Dan Abramov
+    //    * Note that I'm not throwing away old reducers—I'm just
+    //    * adding new ones to the combination list. I see no reason
+    //    * to throw away the old reducers—even in the largest app
+    //    * you're unlikely to have thousands of dynamic modules,
+    //    * which is the point where you might want to disconnect
+    //    * some reducers in your application.
+    //    */
+    // }
+
     injectors = getInjectors(this.context.store);
 
     render() {

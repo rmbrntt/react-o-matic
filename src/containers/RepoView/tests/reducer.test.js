@@ -1,4 +1,4 @@
-import repoReducer from '../index';
+import repoReducer from '../reducer';
 import {changeUsername} from '../actions';
 
 describe('repoReducer', () => {
