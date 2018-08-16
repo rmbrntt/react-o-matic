@@ -10,7 +10,7 @@
  *   return state.set('yourStateVariable', true);
  */
 
-import ActionTypes from './constants';
+import actionTypes from './constants';
 
 // The initial state of the App
 const initialState = {
@@ -23,27 +23,27 @@ const initialState = {
 
 const repos = (state = initialState, action) => {
   switch (action.type) {
-    case ActionTypes.CHANGE_USERNAME:
+    case actionTypes.CHANGE_USERNAME:
       // Delete prefixed '@' from the github username
       return {
         ...state,
         username: action.name.replace(/@/gi, ''),
       };
-    case ActionTypes.LOAD_REPOS:
+    case actionTypes.LOAD_REPOS:
       return {
         ...state,
         loading: true,
         error: false,
         repositories: false,
       };
-    case ActionTypes.LOAD_REPOS_SUCCESS:
+    case actionTypes.LOAD_REPOS_SUCCESS:
       return {
         ...state,
         loading: false,
         currentUser: action.username,
         repositories: action.repos,
       };
-    case ActionTypes.LOAD_REPOS_ERROR:
+    case actionTypes.LOAD_REPOS_ERROR:
       return {
         ...state,
         error: action.error,

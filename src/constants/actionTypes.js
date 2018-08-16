@@ -1,7 +1,6 @@
-import keyMirror from 'utils/keyMirror';
-import createActionPrefix from 'store/createActionPrefix';
+import defineActionTypes from 'store/defineActionTypes';
 
-const ActionTypes = {
+const actionTypes = {
   USER_LOGIN_REQUEST: undefined,
   USER_LOGIN_SUCCESS: undefined,
   USER_LOGIN_FAILURE: undefined,
@@ -13,8 +12,6 @@ const ActionTypes = {
   LOAD_APP_ERROR: undefined,
 };
 
-const prefix = createActionPrefix('app');
+export {actionTypes};
 
-export {ActionTypes};
-
-export default keyMirror(ActionTypes, prefix);
+export default defineActionTypes(actionTypes);

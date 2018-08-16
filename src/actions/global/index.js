@@ -1,4 +1,4 @@
-import {ActionTypes} from 'constants';
+import {actionTypes} from 'constants';
 
 /**
  * Load the app, this action starts the request saga
@@ -7,7 +7,7 @@ import {ActionTypes} from 'constants';
  */
 export function loadApp() {
   return {
-    type: ActionTypes.LOAD_APP,
+    type: actionTypes.LOAD_APP,
   };
 }
 
@@ -19,7 +19,7 @@ export function loadApp() {
  */
 export function appLoaded() {
   return {
-    type: ActionTypes.LOAD_APP_SUCCESS,
+    type: actionTypes.LOAD_APP_SUCCESS,
   };
 }
 
@@ -32,7 +32,7 @@ export function appLoaded() {
  */
 export function appLoadingError(error) {
   return {
-    type: ActionTypes.LOAD_APP_ERROR,
+    type: actionTypes.LOAD_APP_ERROR,
     error,
   };
 }

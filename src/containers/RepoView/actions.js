@@ -15,7 +15,7 @@
  *    }
  */
 
-import ActionTypes from './constants';
+import actionTypes from './constants';
 
 /**
  * Changes the input field of the form
@@ -26,7 +26,7 @@ import ActionTypes from './constants';
  */
 export function changeUsername(name) {
   return {
-    type: ActionTypes.CHANGE_USERNAME,
+    type: actionTypes.CHANGE_USERNAME,
     name,
   };
 }
@@ -38,7 +38,7 @@ export function changeUsername(name) {
  */
 export function loadRepos() {
   return {
-    type: ActionTypes.LOAD_REPOS,
+    type: actionTypes.LOAD_REPOS,
   };
 }
 
@@ -52,7 +52,7 @@ export function loadRepos() {
  */
 export function reposLoaded(repos, username) {
   return {
-    type: ActionTypes.LOAD_REPOS_SUCCESS,
+    type: actionTypes.LOAD_REPOS_SUCCESS,
     repos,
     username,
   };
@@ -67,7 +67,7 @@ export function reposLoaded(repos, username) {
  */
 export function repoLoadingError(error) {
   return {
-    type: ActionTypes.LOAD_REPOS_ERROR,
+    type: actionTypes.LOAD_REPOS_ERROR,
     error,
   };
 }

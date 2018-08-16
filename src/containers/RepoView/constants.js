@@ -1,24 +1,16 @@
-/*
- * Repos types
- * Each action has a corresponding type which the reducer subscribes to.
- * To avoid typos and unexpected event firing between the reducer and the actions,
- * types are declared by prefixing them with 'appName/reducerName'.
- *
- * Either use the createActionPrefix utility or follow this format:
- * export const ACTION_CONSTANT = 'appName/nameSpace/ACTION_NAME';
+/**
+ * @module containers/RepoView/constants
  */
-import createActionPrefix from 'store/createActionPrefix';
-import keyMirror from 'utils/keyMirror';
+import defineActionTypes from 'store/defineActionTypes';
 
-const prefix = createActionPrefix('repoView');
-export const ActionTypes = keyMirror(
+export const actionTypes = defineActionTypes(
   {
     LOAD_REPOS_SUCCESS: undefined,
     LOAD_REPOS: undefined,
     LOAD_REPOS_ERROR: undefined,
     CHANGE_USERNAME: undefined,
   },
-  prefix,
+  'repoView',
 );
 
-export default ActionTypes;
+export default actionTypes;

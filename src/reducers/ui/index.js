@@ -1,4 +1,4 @@
-import ActionTypes from 'constants';
+import actionTypes from 'constants';
 
 // The initial state of the App
 const initialState = {
@@ -8,18 +8,18 @@ const initialState = {
 
 const ui = (state = initialState, action) => {
   switch (action.type) {
-    case ActionTypes.LOAD_APP:
+    case actionTypes.LOAD_APP:
       return {
         ...state,
         loading: true,
         error: false,
       };
-    case ActionTypes.LOAD_APP_SUCCESS:
+    case actionTypes.LOAD_APP_SUCCESS:
       return {
         ...state,
         loading: false,
       };
-    case ActionTypes.LOAD_APP_ERROR:
+    case actionTypes.LOAD_APP_ERROR:
       return {
         ...state,
         error: action.error,

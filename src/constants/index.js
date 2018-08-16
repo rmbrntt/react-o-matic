@@ -1,3 +1,5 @@
-import ActionTypes from './ActionTypes';
+import actionTypes from './actionTypes';
 
-export {ActionTypes};
+export const APP_NAME = 'react-o-matic';
+
+export {actionTypes};

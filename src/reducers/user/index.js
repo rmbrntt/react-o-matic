@@ -1,4 +1,4 @@
-import ActionTypes from 'constants';
+import actionTypes from 'constants';
 
 export const initialState = {
   isAuthenticated: false,
@@ -7,23 +7,23 @@ export const initialState = {
 
 const user = (state = initialState, action) => {
   switch (action.type) {
-    case ActionTypes.USER_LOGIN_REQUEST:
+    case actionTypes.USER_LOGIN_REQUEST:
       return {
         ...state,
         status: 'running',
       };
-    case ActionTypes.USER_LOGIN_SUCCESS:
+    case actionTypes.USER_LOGIN_SUCCESS:
       return {
         ...state,
         isAuthenticated: true,
         status: 'idle',
       };
-    case ActionTypes.USER_LOGOUT_REQUEST:
+    case actionTypes.USER_LOGOUT_REQUEST:
       return {
         ...state,
         status: 'running',
       };
-    case ActionTypes.USER_LOGOUT_SUCCESS:
+    case actionTypes.USER_LOGOUT_SUCCESS:
       return {
         ...state,
         isAuthenticated: false,
